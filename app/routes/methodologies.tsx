@@ -1,8 +1,16 @@
+import type { Route } from "./+types/methodologies";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import home_section from "@/assets/images/home_section.jpg";
+
+export function meta({}: Route.MetaArgs) {
+  return [
+    { title: "New React Router App" },
+    { name: "description", content: "Welcome to React Router!" },
+  ];
+} 
 const faqs = [
   {
     question: "Taux de capitalisation ou de rendement",

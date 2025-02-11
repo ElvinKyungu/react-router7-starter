@@ -1,5 +1,13 @@
+import type { Route } from "./+types/objectives";
 import { motion } from "framer-motion";
-import { Target, TrendingUp, Users, Zap, CheckCircle } from "lucide-react";
+import { CheckCircle } from "lucide-react";
+
+export function meta({}: Route.MetaArgs) {
+  return [
+    { title: "New React Router App" },
+    { name: "description", content: "Welcome to React Router!" },
+  ];
+}
 
 const valueTypes = [
   {

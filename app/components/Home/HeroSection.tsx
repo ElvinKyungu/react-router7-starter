@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import hero_section from "@/assets/images/home_section.jpg";
 import { Avatar, AvatarImage } from "@/components/ui/avatar"
 import { Star } from "lucide-react"
+import { Link } from "react-router";
 
 export default function HeroSection() {
   return (
@@ -27,9 +28,9 @@ export default function HeroSection() {
         <div className="mt-10 flex flex-col md:flex-row gap-4 items-start justify-start md:items-start">
           <Button
             variant="outline"
-            className="border-primary cursor-pointer rounded-full bg-primary text-black text-sm md:text-base"
+            className="border-primary cursor-pointer rounded-full bg-primary text-black text-sm border-none bg-white md:text-base"
           >
-            Contactez nos experts
+            <Link to={"/contact"}>Contactez nos experts</Link>
           </Button>
         </div>
       </div>
@@ -51,10 +52,10 @@ export default function HeroSection() {
           </div>
           <div className="relative">
             <div className="flex items-center gap-1 text-yellow-400">
-              <Star/>
-              <Star/>
-              <Star/>
-              <Star/>
+              <Star className="w-5 h-5"/>
+              <Star className="w-5 h-5"/>
+              <Star className="w-5 h-5"/>
+              <Star className="w-5 h-5"/>
             </div>
             <div className="text-sm text-white z-50">
               <p>56 Happy customers</p>

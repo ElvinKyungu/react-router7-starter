@@ -18,8 +18,9 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="bg-primary relative">
-      <div className="container mx-auto px-4">
+    <header>
+      <nav className="bg-primary relative px-6 md:px-20 lg:px-40">
+      <div className="">
         <div className="flex items-center justify-between h-16">
           <Link
             to="/"
@@ -110,13 +111,13 @@ const Navbar = () => {
                   >
                     <Link
                       to={link.to}
-                      // className={({ isActive }) =>
-                      //   `block px-3 py-2 rounded-md text-base font-medium ${
-                      //     isActive
-                      //       ? "bg-primary text-primary-foreground"
-                      //       : "hover:bg-accent hover:text-accent-foreground"
-                      //   }`
-                      // }
+                      className={({ isActive }) =>
+                        `block px-3 py-2 rounded-md text-base font-medium ${
+                          isActive
+                            ? "bg-primary text-primary-foreground"
+                            : "hover:bg-accent hover:text-accent-foreground"
+                        }`
+                      }
                       onClick={() => setIsOpen(false)}
                     >
                       {link.label}
@@ -129,6 +130,7 @@ const Navbar = () => {
         )}
       </AnimatePresence>
     </nav>
+    </header>
   );
 };
 

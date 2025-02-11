@@ -1,6 +1,5 @@
 import { Scale, Lightbulb, ChartLine, Handshake } from "lucide-react";
-import { Button } from "../ui/button";
-import img_tool from "@/assets/images/tool.png";
+import Banner from "./Banner";
 import { motion } from "framer-motion";
 
 export default function ValuesSection() {
@@ -58,20 +57,7 @@ export default function ValuesSection() {
         ))}
       </section>
 
-      <section className="bg-green-200 px-6 sm:px-10 py-14 text-gray-700 rounded-3xl flex flex-col md:flex-row items-center justify-between mt-20">
-        <div className="text-center md:text-left">
-          <h2 className="text-3xl md:text-4xl font-semibold">Le choix de l'expertise pour vous</h2>
-          <p className="mt-5 text-gray-800">
-            Nous mettons notre savoir-faire à votre service pour des solutions innovantes et adaptées.
-          </p>
-          <Button className="mt-5 bg-black text-white hover:bg-black cursor-pointer shadow-none rounded-full">
-            Nous contacter
-          </Button>
-        </div>
-        <div className="mt-10 md:mt-0">
-          <img src={img_tool} alt="Outil" className="max-w-full h-auto md:w-[30rem] md:h-56" />
-        </div>
-      </section>
+      <Banner/>
     </section>
   );
 }

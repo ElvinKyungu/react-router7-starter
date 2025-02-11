@@ -1,3 +1,4 @@
+import type { Route } from "./+types/contact";
 import { motion } from "framer-motion";
 import { Mail, Phone, LifeBuoy } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -6,6 +7,13 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "~/hooks/use-toast";
+
+export function meta({}: Route.MetaArgs) {
+  return [
+    { title: "New React Router App" },
+    { name: "description", content: "Welcome to React Router!" },
+  ];
+}
 
 const Contact = () => {
   const { toast } = useToast();

@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Link } from 'react-router';
 
 export default function ContentSection() {
   return (
@@ -40,7 +41,7 @@ export default function ContentSection() {
                 </cite>
                 <div className="mt-6 space-y-3">
                   <Button className="mt-5 bg-black text-white hover:bg-black cursor-pointer shadow-none rounded-full">
-                    Voir nos services
+                    <Link to={"/services"}>Voir nos services</Link>
                   </Button>
                 </div>
               </blockquote>
