@@ -12,8 +12,8 @@ const Navbar = () => {
     { to: "/", label: "Accueil" },
     { to: "/services", label: "Services" },
     { to: "/methodologies", label: "Méthodologies" },
-    { to: "/objectives", label: "Objectifs" },
-    { to: "/prerequisites", label: "Prérequis" },
+    { to: "/objectifs", label: "Objectifs" },
+    { to: "/prerequis", label: "Prérequis" },
     { to: "/contact", label: "Contact" },
   ];
 

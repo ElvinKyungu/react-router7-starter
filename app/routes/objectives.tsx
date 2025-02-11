@@ -3,28 +3,64 @@ import { Target, TrendingUp, Users, Zap, CheckCircle } from "lucide-react";
 
 const valueTypes = [
   {
-    title: "Rapport d'expertise détaillé",
+    title: "Valeur vénale",
     description: "Consectetur pariatur irure exercitation sit amet id consectetur consecteturmagna et Lorem labore qui velit."
   },
   {
-    title: "Rapport d'expertise synthétique",
+    title: "Juste valeur (norme IFRS 13)",
     description: "Labore duis pariatur est exercitation laboris cupidatat amet cillum. Amet nisi ullamco."
   },
   {
-    title: "Certificat d'expertise",
+    title: "Coût de remplacement brut",
     description: "Elit deserunt nisi esse duis cupidatat proident sit minim mollit officia pariatur incididunt in tempor."
   },
   {
-    title: "Contrôle de cohérance",
+    title: "Coût de remplacement net",
     description: "Velit sit tempor pariatur quis pariatur incididunt culpa dolor voluptate officia incididunt velit dolore."
   },
   {
-    title: "Modern platform",
+    title: "Valeur d'apport",
+    description: "Laboris elit consectetur sint nisi eu mollit proident sit magna velit adipisicing consequat amet reprehenderit."
+  },
+  {
+    title: "Prix de convenance ou d'opportunité",
+    description: "Nostrud excepteur incididunt proident sit nulla ipsum sunt nostrud est esse adipisicing irure officia consectetur."
+  },
+  {
+    title: "Prix de vente forcée",
+    description: "Consectetur pariatur irure exercitation sit amet id consectetur consecteturmagna et Lorem labore qui velit."
+  },
+  {
+    title: "Valeur à neuf ou coût de reconstruction",
+    description: "Labore duis pariatur est exercitation laboris cupidatat amet cillum. Amet nisi ullamco."
+  },
+  {
+    title: "Valeur d'assurance",
+    description: "Elit deserunt nisi esse duis cupidatat proident sit minim mollit officia pariatur incididunt in tempor."
+  },
+  {
+    title: "Valeur hypothécaire",
+    description: "Velit sit tempor pariatur quis pariatur incididunt culpa dolor voluptate officia incididunt velit dolore."
+  },
+  {
+    title: "Droit au bail",
     description: "Laboris elit consectetur sint nisi eu mollit proident sit magna velit adipisicing consequat amet reprehenderit."
   },
   {
     title: "Integrations",
     description: "Nostrud excepteur incididunt proident sit nulla ipsum sunt nostrud est esse adipisicing irure officia consectetur."
+  },
+  {
+    title: "Indemnité d'éviction",
+    description: "Consectetur pariatur irure exercitation sit amet id consectetur consecteturmagna et Lorem labore qui velit."
+  },
+  {
+    title: "Indemnité d'exportation",
+    description: "Labore duis pariatur est exercitation laboris cupidatat amet cillum. Amet nisi ullamco."
+  },
+  {
+    title: "Valeur en matière forestière",
+    description: "Elit deserunt nisi esse duis cupidatat proident sit minim mollit officia pariatur incididunt in tempor."
   }
 ];
 
@@ -64,7 +100,7 @@ const Objectives = () => {
               className="mb-16"
             >
               <h1 className="mt-2 text-5xl lg:text-5xl tracking-tight text-gray-900">
-                Découvrez nos services
+                Découvrez nos objectifs
               </h1>
             </motion.div>
 
