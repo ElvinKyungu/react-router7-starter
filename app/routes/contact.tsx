@@ -136,7 +136,7 @@ const Contact = () => {
           <div className="flex justify-center">
             <Button 
               type="submit" 
-              className="bg-black rounded-full text-white"
+              className="bg-black rounded-full text-white hover:bg-black"
               disabled={isSubmitting}
             >
               {isSubmitting ? "Sending..." : "Send message"}
