@@ -1,4 +1,4 @@
-import type { Route } from "./+types/contact";
+// import type { Route } from "./+types/contact";
 import { motion } from "framer-motion";
 import { Mail, Phone, LifeBuoy } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -7,24 +7,45 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "~/hooks/use-toast";
+import useWeb3Forms from "@web3forms/react";
+import { useForm } from "react-hook-form";
 
-export function meta({}: Route.MetaArgs) {
-  return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
-  ];
-}
+// export function meta({}: Route.MetaArgs) {
+//   return [
+//     { title: "New React Router App" },
+//     { name: "description", content: "Welcome to React Router!" },
+//   ];
+// }
 
 const Contact = () => {
   const { toast } = useToast();
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({
-      title: "Message envoyé !",
-      description: "Nous vous répondrons dans les plus brefs délais.",
-    });
-  };
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm();
+  const { submit: onSubmit } = useWeb3Forms({
+    access_key: import.meta.env.VITE_WEB3FORM_KEY || '',
+    settings: {
+      from_name: "Your Website",
+      subject: "New Contact Message from your Website",
+    },
+    onSuccess: (message, data) => {
+      toast({
+        title: "Message envoyé !",
+        description: "Nous vous répondrons dans les plus brefs délais.",
+      });
+      reset();
+    },
+    onError: (message, data) => {
+      toast({
+        title: "Erreur",
+        description: "Une erreur est survenue, veuillez réessayer.",
+        variant: "destructive",
+      });
+    },
+  });
 
   return (
     <motion.div
@@ -37,7 +58,7 @@ const Contact = () => {
         Restons en contact
       </h2>
       <p className="mb-8 text-gray-700 sm:text-lg">
-        Une question, un problème technique ou simplement envie d’échanger avec nous ? Notre équipe est là pour vous aider. N’hésitez pas à nous contacter pour toute demande d’information, de collaboration ou de support.
+        Une question, un problème technique ou simplement envie d'échanger avec nous ? Notre équipe est là pour vous aider. N'hésitez pas à nous contacter pour toute demande d'information, de collaboration ou de support.
       </p>
       {/* Contact Info Blocks */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center mb-12">
@@ -66,30 +87,60 @@ const Contact = () => {
         <div>
           <h2 className="mb-4 text-4xl md:text-5xl font-medium text-gray-900">Écrivez-nous un message</h2>
           <p className="mb-8 text-gray-700 sm:text-lg">
-            Nous serions ravis d’avoir de vos nouvelles ! Remplissez le formulaire ci-dessous, et nous reviendrons vers vous dans les plus brefs délais..
+            Nous serions ravis d'avoir de vos nouvelles ! Remplissez le formulaire ci-dessous, et nous reviendrons vers vous dans les plus brefs délais..
           </p>
         </div>
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           <div className="flex gap-5 w-full">
             <div className="w-full">
               <Label htmlFor="email">Your email</Label>
-              <Input type="email" id="email" className="border border-gray-200 shadow-none" placeholder="name@example.com" required />
+              <Input 
+                type="email" 
+                id="email" 
+                className="border border-gray-200 shadow-none" 
+                placeholder="name@example.com" 
+                {...register("email", { required: true })}
+              />
             </div>
             <div className="w-full">
-              <Label htmlFor="email">Your name</Label>
-              <Input type="email" id="email" className="border border-gray-200 shadow-none" placeholder="John doe" required />
+              <Label htmlFor="name">Your name</Label>
+              <Input 
+                type="text" 
+                id="name" 
+                className="border border-gray-200 shadow-none" 
+                placeholder="John doe" 
+                {...register("name", { required: true })}
+              />
             </div>
           </div>
           <div>
             <Label htmlFor="subject">Subject</Label>
-            <Input type="text" id="subject" className="border border-gray-200 shadow-none" placeholder="Let us know how we can help you" required />
+            <Input 
+              type="text" 
+              id="subject" 
+              className="border border-gray-200 shadow-none" 
+              placeholder="Let us know how we can help you" 
+              {...register("subject", { required: true })}
+            />
           </div>
           <div>
             <Label htmlFor="message">Your message</Label>
-            <Textarea id="message" rows={6} className="border border-gray-200 shadow-none outline-none focus:border-none" placeholder="Leave a comment..." required />
+            <Textarea 
+              id="message" 
+              rows={6} 
+              className="border border-gray-200 shadow-none outline-none focus:border-none" 
+              placeholder="Leave a comment..." 
+              {...register("message", { required: true })}
+            />
           </div>
-          <div className="flex  justify-center">
-            <Button type="submit" className="bg-black rounded-full text-white">Send message</Button>
+          <div className="flex justify-center">
+            <Button 
+              type="submit" 
+              className="bg-black rounded-full text-white"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? "Sending..." : "Send message"}
+            </Button>
           </div>
         </form>
       </section>
