@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import home_section from "@/assets/images/home_section.jpg";
+import about from '@/assets/images/about.jpg'
 
 const faqs = [
   {
@@ -41,13 +41,13 @@ export default function FAQSection() {
   };
 
   return (
-    <div ref={ref} className="mx-auto px-6 md:px-20 lg:px-40 mb-5 pb-10">
+    <div ref={ref} className="mx-auto px-6 md:px-20 lg:px-40 pb-10 mb-10 mt-10 md:mt-28 lg:mt-40">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         transition={{ duration: 0.5 }}
       >
-        <h2 className="text-4xl md:text-5xl font-bold mb-6">Questions fréquentes</h2>
+        <h2 className="title mb-5">Questions fréquentes</h2>
       </motion.div>
       <div className="grid grid-cols-12 md:gap-20">
         <div className="space-y-4 col-span-12 md:col-span-6">
@@ -92,7 +92,7 @@ export default function FAQSection() {
           className="hidden md:block md:col-span-6"
         >
           <img
-            src={home_section}
+            src={about}
             alt="Expert en évaluation immobilière"
             className="h-96 rounded-lg w-full object-cover"
           />

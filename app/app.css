@@ -58,11 +58,22 @@
     --chart-5: 340 75% 55%
   }
 }
+
 @layer base {
   * {
     @apply border-border;
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .title {
+    @apply relative z-10 max-w-3xl text-4xl font-medium lg:text-5xl;
+  }
+  
+  .button {
+    @apply py-3 px-7 cursor-pointer rounded-full text-white text-sm border-none hover:bg-black bg-black md:text-base;
   }
 }

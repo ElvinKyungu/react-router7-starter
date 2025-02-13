@@ -7,9 +7,10 @@ const links = [
   { to: "/", label: "Accueil" },
   { to: "/services", label: "Services" },
   { to: "/methodologies", label: "Méthodologies" },
-  { to: "/objectives", label: "Objectifs" },
-  { to: "/prerequisites", label: "Prérequis" },
+  { to: "/objectifs", label: "Objectifs" },
+  { to: "/prerequis", label: "Prérequis" },
   { to: "/contact", label: "Contact" },
+  { to: "/contact", label: "legal" },
 ];
 
 const Footer = () => {
@@ -30,7 +31,7 @@ const Footer = () => {
               </span>
             </Link>
           </div>
-          <ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-700 space-x-6">
+          <ul className="flex flex-wrap items-center justify-start mb-6 text-sm font-medium text-gray-800 sm:mb-0  space-x-6">
             {links.map((link) => (
               <li key={link.to} className="">
                 <Link to={link.to} className="hover:underline">

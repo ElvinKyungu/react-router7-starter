@@ -1,23 +1,23 @@
-import { Button } from "@/components/ui/button";
 import { Link } from 'react-router';
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import about from '@/assets/images/about.jpg'
 
 export default function ContentSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
   return (
-    <section ref={ref} className="overflow-hidden py-32">
-      <div className="space-y-16 px-6 md:px-20 lg:px-40">
+    <section ref={ref} className="overflow-hidden py-5 md:py-10 lg:py-32 mt-10">
+      <div className="space-y-1 lg:space-y-16 px-6 md:px-20 lg:px-40">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5 }}
-          className="text-title relative z-10 max-w-3xl text-4xl font-medium lg:text-5xl"
+          className="title"
         >
-          The Gemini ecosystem brings together our models.
+          Une expertise immobilière professionnelle à votre service
         </motion.h2>
         <div className="grid gap-6 sm:grid-cols-2 md:gap-12 lg:gap-24">
           <motion.div
@@ -28,9 +28,9 @@ export default function ContentSection() {
           >
             <div className="tls-shadow-md rounded-card relative overflow-hidden">
               <img
-                className="relative hidden grayscale dark:block h-96 w-full object-cover rounded-xl"
-                src="https://oxymor-st.tailus.io/_astro/bars.DEh8rxfi_2hxS64.webp"
-                alt=""
+                className="relative hidden grayscale md:block h-96 w-full object-cover rounded-xl"
+                src={about}
+                alt="Cabinet d'expertise immobilière"
               />
             </div>
           </motion.div>
@@ -38,27 +38,23 @@ export default function ContentSection() {
             initial={{ opacity: 0, x: 20 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="relative space-y-4"
+            className="relative space-y-2"
           >
             <p className="text-body">
-              Gemini is evolving to be more than just the models.{" "}
+              Notre cabinet d'expertise immobilière s'appuie sur{" "}
               <span className="text-title font-medium">
-                It supports an entire ecosystem
+                des méthodologies éprouvées
               </span>{" "}
-              — from products innovate.
+              pour vous offrir une évaluation précise et fiable de vos biens.
             </p>
             <p>
-              It supports an entire ecosystem — from products to the APIs and
-              platforms helping developers and businesses innovate
+              Nous combinons expertise technique, connaissance approfondie du marché et outils professionnels pour répondre à vos besoins en matière d'évaluation immobilière, que ce soit pour une transaction, une expertise judiciaire ou une estimation patrimoniale.
             </p>
 
-            <div className="pt-6">
+            <div className="pt-2">
               <blockquote className="text-blockquote">
                 <cite>
-                  Using TailsUI has been like unlocking a secret design
-                  superpower. It's the perfect fusion of simplicity and
-                  versatility, enabling us to create UIs that are as stunning as
-                  they are user-friendly.
+                  Notre engagement : vous apporter des solutions d'expertise immobilière sur mesure, avec une approche rigoureuse et professionnelle pour chaque mission qui nous est confiée.
                 </cite>
                 <div className="mt-6 space-y-3">
                   <motion.div
@@ -66,9 +62,9 @@ export default function ContentSection() {
                     animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                     transition={{ duration: 0.5, delay: 0.6 }}
                   >
-                    <Button className="mt-5 bg-black text-white hover:bg-black cursor-pointer shadow-none rounded-full">
+                    <button className="button">
                       <Link to={"/services"}>Voir nos services</Link>
-                    </Button>
+                    </button>
                   </motion.div>
                 </div>
               </blockquote>

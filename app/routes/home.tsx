@@ -1,11 +1,10 @@
 import type { Route } from "./+types/home";
 import { motion } from "framer-motion";
 import HeroSection from "@/components/Home/HeroSection";
-import ValuesSection from "@/components/Home/ValueSection";
 import FAQSection from "@/components/Home/FAQ";
-import Testimonial from "@/components/Home/Testimonial";
 import About from "@/components/Home/About";
 import logo from "@/assets/images/logo.jpg";
+import Banner from "~/components/Home/Banner";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -37,8 +36,7 @@ const Home = () => {
       <HeroSection />
       <main className="bg-gray-50">
         <About />
-        <ValuesSection />
-        <Testimonial />
+        <Banner/>
         <FAQSection />
       </main>
     </motion.div>

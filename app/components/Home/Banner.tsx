@@ -1,22 +1,22 @@
 import { Button } from "@/components/ui/button";
-import img_tool from "@/assets/images/tool.png";
+import cta from "@/assets/images/cta.jpg";
 import { motion } from "framer-motion";
 
 export default function Banner() {
   return (
-    <section className="bg-cover my-5 mt-20">
+    <section className="mx-auto px-6 md:px-20 lg:px-40 mb-10 mt-5 md:mt-20">
       <motion.section 
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.5 }}
-        className="bg-green-200 px-6 sm:px-10 py-14 text-gray-700 rounded-3xl flex flex-col md:flex-row items-center justify-between mt-20"
+        className="bg-white px-3 sm:px-10 py-5 md:py-14 text-gray-700 rounded-3xl flex flex-col md:flex-row items-center justify-between mt-20"
       >
-        <div className="text-center md:text-left">
+        <div className="md:text-center text-left">
           <motion.h2 
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.7 }}
-            className="text-3xl md:text-4xl font-semibold"
+            className="title"
           >
             Prêt à concrétiser votre projet immobilier ?
           </motion.h2>
@@ -33,9 +33,9 @@ export default function Banner() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 1.1 }}
           >
-            <Button className="mt-5 bg-black text-white hover:bg-black cursor-pointer shadow-none rounded-full">
+            <button className="button mt-5">
               Nous contacter
-            </Button>
+            </button>
           </motion.div>
         </div>
         <motion.div 
@@ -44,7 +44,7 @@ export default function Banner() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, delay: 0.7 }}
         >
-          <img src={img_tool} alt="Outil" className="max-w-full h-auto md:w-[30rem] md:h-56" />
+          <img src={cta} alt="Outil" className="max-w-full grayscale object-cover h-auto md:w-[30rem] md:h-56" />
         </motion.div>
       </motion.section>
     </section>

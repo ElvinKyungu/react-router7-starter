@@ -2,9 +2,8 @@ import type { Route } from "./+types/methodologies";
 import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
-import home_section from "@/assets/images/home_section.jpg";
-import logo from "@/assets/images/logo.jpg";
+import { Card, CardContent } from "@/components/ui/card"
+import methodologie from "@/assets/images/about.jpg";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -152,7 +151,7 @@ export default function Methodologies() {
           className="hidden md:block md:col-span-6"
         >
           <img
-            src={home_section}
+            src={methodologie}
             alt="Illustration des méthodologies d'évaluation immobilière"
             className="h-[42rem] rounded-lg w-full object-cover"
           />
