@@ -2,11 +2,42 @@ import type { Route } from "./+types/prerequisites";
 import {UserCheck, Clock, TrendingUp, Home, Shield } from "lucide-react";
 import { motion } from "framer-motion";
 import Banner from "~/components/Home/Banner";
+import logo from "@/assets/images/logo.jpg";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: "Prérequis pour l'Évaluation Immobilière | Expert en Estimation" },
+    { 
+      name: "description", 
+      content: "Découvrez les prérequis essentiels pour une évaluation immobilière réussie : consentement mutuel, délai optimal, stabilité des prix. Notre expertise professionnelle garantit une estimation objective et fiable de votre bien."
+    },
+    {
+      name: "keywords",
+      content: "prérequis évaluation immobilière, estimation immobilière conditions, expertise immobilière critères, évaluation bien immobilier"
+    },
+    {
+      property: "og:title",
+      content: "Prérequis pour l'Évaluation Immobilière | Expert en Estimation"
+    },
+    {
+      property: "og:description",
+      content: "Les conditions essentielles pour une évaluation immobilière professionnelle. Notre expertise garantit une estimation précise et objective de votre bien immobilier."
+    },
+    { property: "og:type", content: "website" },
+    { property: "og:image", content: logo },
+    { property: "og:url", content: "https://3ie-site-dev.tech-magister.com/prerequisites" },
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:title", content: "Prérequis pour l'Évaluation Immobilière" },
+    {
+      name: "twitter:description",
+      content: "Découvrez les conditions nécessaires pour une évaluation immobilière professionnelle et objective."
+    },
+    { name: "twitter:image", content: logo },
+    { name: "robots", content: "index, follow" },
+    { name: "author", content: "Cabinet d'Expertise Immobilière" },
+    { name: "language", content: "French" },
+    { name: "geo.region", content: "FR" },
+    { name: "geo.placename", content: "France" }
   ];
 }
 
@@ -16,7 +47,7 @@ export default function Prerequisites() {
       <motion.h3 
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.2 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
         className="text-3xl md:text-4xl lg:text-5xl font-medium mb-10"
       >
         Les prérequis
@@ -50,14 +81,26 @@ export default function Prerequisites() {
           },
         ].map(({ icon, title, description }, index) => (
           <motion.div
-            initial={{ opacity: 0, y: 0 }}
-            animate={{ opacity: 1, y: 0}}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ 
+              duration: 0.5, 
+              delay: index * 0.1,
+              ease: "easeOut"
+            }}
+            whileHover={{ 
+              scale: 1.05,
+              transition: { duration: 0.2 }
+            }}
             key={index}
             className="group bg-white rounded-xl cursor-pointer flex flex-col items-center justify-center p-6 text-center transition-all duration-300 relative overflow-hidden hover:shadow-xl"
           >
             <motion.div 
               className="relative z-10 bg-white rounded-xl p-6 w-full h-full flex flex-col items-center"
+              whileHover={{
+                y: -5,
+                transition: { duration: 0.2 }
+              }}
             >
               {icon}
               <h3 className="text-lg font-semibold">{title}</h3>
