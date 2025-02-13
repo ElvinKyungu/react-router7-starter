@@ -18,7 +18,7 @@ export default function Banner() {
             transition={{ duration: 0.5, delay: 0.7 }}
             className="text-3xl md:text-4xl font-semibold"
           >
-            Le choix de l'expertise pour vous
+            Prêt à concrétiser votre projet immobilier ?
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0 }}

@@ -56,7 +56,6 @@ export default function ValuesSection() {
           </motion.div>
         ))}
       </section>
-
       <Banner/>
     </section>
   );

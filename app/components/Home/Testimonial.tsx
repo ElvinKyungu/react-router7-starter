@@ -1,41 +1,43 @@
 import avatar from "@/assets/images/avatar.jpg";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
+
 export default function FAQs() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
   return (
-    <section className="py-32">
+    <section ref={ref} className="py-32">
       <div className="space-y-16 px-6 md:px-20 lg:px-40">
-        <div className="relative z-10 mx-auto  space-y-6 md:space-y-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.5 }}
+          className="relative z-10 mx-auto space-y-6 md:space-y-8"
+        >
           <h2 className="text-title text-4xl font-medium lg:text-5xl">
-            Build by makers, loved by thousand developers
+            La confiance de nos clients témoigne de notre expertise
           </h2>
-          <p className="text-body ">
-            Gemini is evolving to be more than just the models. It supports an
-            entire to the APIs and platforms helping developers and businesses
-            innovate.
+          <p className="text-body">
+            Découvrez les retours d'expérience de nos clients qui nous ont fait confiance pour leurs projets d'investissement immobilier.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4 lg:grid-rows-2">
-          <div className="card variant-mixed grid gap-5 [grid-template-rows:auto_1fr] sm:col-span-2 lg:row-span-2 lg:p-12 border border-gray-200 bg-white shadow-md shadow-gray-200/50 p-5 rounded-xl">
-            <img
-              className="h-6 w-fit dark:invert"
-              src="https://html.tailus.io/blocks/customers/nike.svg"
-              alt="Nike Logo"
-              height="24"
-              width="auto"
-            />
-
+        <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="card variant-mixed grid gap-5  sm:col-span-2 lg:row-span-2 lg:p-12 border border-gray-200 bg-white shadow-md shadow-gray-200/50 p-5 rounded-xl"
+          >
             <blockquote className="grid gap-6 [grid-template-rows:1fr_auto]">
-              <p className="text-title ">
-                "Tailus has transformed the way I develop web applications.
-                Their extensive collection of UI components, blocks, and
-                templates has significantly accelerated my workflow. The
-                flexibility to customize every aspect allows me to create unique
-                user experiences. Tailus is a game-changer for modern web
-                development"
+              <p className="text-title">
+                "L'expertise approfondie et le professionnalisme de l'équipe ont été déterminants dans notre projet d'investissement. Leur analyse détaillée du marché et leurs conseils personnalisés nous ont permis de faire un choix éclairé. La précision de leur évaluation immobilière nous a donné une confiance totale dans notre décision d'achat."
               </p>
 
-              <div className="grid items-center gap-3 [grid-template-columns:auto_1fr]">
+              <div className="grid items-center gap-3 ">
                 <div className="avatar sz-md">
                   <img
                     src={avatar}
@@ -46,21 +48,25 @@ export default function FAQs() {
                 </div>
                 <div>
                   <cite className="text-title text-sm font-medium">
-                    Elvin Code
+                    Pierre Durand
                   </cite>
                   <span className="text-caption block text-sm">
-                    Software Ingineer
+                    Investisseur Immobilier
                   </span>
                 </div>
               </div>
             </blockquote>
-          </div>
+          </motion.div>
 
-          <div className="card variant-mixed border border-gray-200 bg-white shadow-md shadow-gray-200/50 p-5 rounded-xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="card variant-mixed border border-gray-200 bg-white shadow-md shadow-gray-200/50 p-5 rounded-xl"
+          >
             <blockquote className="space-y-6">
               <p>
-                "Great work on tailfolio template. This is one of the best
-                personal website that I have seen so far :)"
+                "Un accompagnement remarquable tout au long de notre projet d'expertise. La méthodologie utilisée est rigoureuse et transparente."
               </p>
 
               <div className="grid items-center gap-3 [grid-template-columns:auto_1fr]">
@@ -74,20 +80,24 @@ export default function FAQs() {
                 </div>
                 <div>
                   <cite className="text-title text-sm font-medium">
-                    Yucel Faruksahan
+                    Marie Lambert
                   </cite>
                   <span className="text-caption block text-sm">
-                    Creator, Tailkits
+                    Propriétaire
                   </span>
                 </div>
               </div>
             </blockquote>
-          </div>
-          <div className="card variant-mixed border border-gray-200 bg-white shadow-md shadow-gray-200/50 p-5 rounded-xl">
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+            className="card variant-mixed border border-gray-200 bg-white shadow-md shadow-gray-200/50 p-5 rounded-xl"
+          >
             <blockquote className="space-y-6">
               <p>
-                "Great work on tailfolio template. This is one of the best
-                personal website that I have seen so far :)"
+                "Une expertise immobilière de qualité qui nous a permis de valoriser notre bien à sa juste valeur. Je recommande vivement leurs services."
               </p>
 
               <div className="grid gap-3 [grid-template-columns:auto_1fr]">
@@ -101,23 +111,16 @@ export default function FAQs() {
                 </div>
                 <div>
                   <p className="text-title text-sm font-medium">
-                    Rodrigo Aguilar
+                    François Martin
                   </p>
                   <span className="text-caption block text-sm">
-                    Creator, TailwindAwesome
+                    Gérant de SCI
                   </span>
                 </div>
               </div>
             </blockquote>
-          </div>
-          <div className="card variant-mixed sm:col-span-2 lg:p-12 flex justify-center flex-col items-center">
-            <h1 className="text-5xl">Something</h1>
-            <div className="mt-5">
-              <Button className="bg-black rounded-full text-white cursor-pointer">
-                Contactez-nous maintenant
-              </Button>
-            </div>
-          </div>
+          </motion.div>
+          
         </div>
       </div>
     </section>
