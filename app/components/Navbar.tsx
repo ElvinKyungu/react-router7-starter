@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -7,6 +7,21 @@ import logo from "@/assets/images/logo.jpg";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.scrollY;
+      const isScrollingDown = prevScrollPos < currentScrollPos;
+
+      setVisible(!isScrollingDown || currentScrollPos < 10);
+      setPrevScrollPos(currentScrollPos);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [prevScrollPos]);
 
   const links = [
     { to: "/", label: "Accueil" },
@@ -18,7 +33,7 @@ const Navbar = () => {
   ];
 
   return (
-    <header>
+    <header className={`sticky top-0 z-50 transition-transform duration-300 bg-white ${visible ? 'translate-y-0' : '-translate-y-full'}`}>
       <nav className="bg-primary relative px-6 md:px-20 lg:px-40">
       <div className="">
         <div className="flex items-center justify-between h-16">
