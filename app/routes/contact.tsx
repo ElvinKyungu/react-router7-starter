@@ -32,7 +32,7 @@ export function meta({}: Route.MetaArgs) {
     },
     { property: "og:type", content: "website" },
     { property: "og:image", content: logo },
-    { property: "og:url", content: "https://www.votresite.com/contact" },
+    { property: "og:url", content: "https://3ie-site-dev.tech-magister.com/contact" },
     { name: "twitter:card", content: "summary_large_image" },
     { 
       name: "twitter:title", 
