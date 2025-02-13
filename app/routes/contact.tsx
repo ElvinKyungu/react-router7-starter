@@ -1,4 +1,4 @@
-// import type { Route } from "./+types/contact";
+import type { Route } from "./+types/contact";
 import { motion } from "framer-motion";
 import { Mail, Phone, LifeBuoy } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -9,13 +9,53 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "~/hooks/use-toast";
 import useWeb3Forms from "@web3forms/react";
 import { useForm } from "react-hook-form";
+import logo from "@/assets/images/logo.jpg";
 
-// export function meta({}: Route.MetaArgs) {
-//   return [
-//     { title: "New React Router App" },
-//     { name: "description", content: "Welcome to React Router!" },
-//   ];
-// }
+export function meta({}: Route.MetaArgs) {
+  return [
+    { title: "Contact | Expert en Évaluation Immobilière | Conseil & Expertise" },
+    { 
+      name: "description", 
+      content: "Contactez notre cabinet d'expertise immobilière pour vos besoins en évaluation, estimation et conseil. Notre équipe d'experts est à votre disposition pour répondre à vos questions et vous accompagner dans vos projets immobiliers."
+    },
+    {
+      name: "keywords",
+      content: "contact expert immobilier, évaluation immobilière contact, expertise immobilière consultation, rendez-vous expert immobilier, devis expertise immobilière"
+    },
+    {
+      property: "og:title",
+      content: "Contact | Expert en Évaluation Immobilière | Conseil & Expertise"
+    },
+    {
+      property: "og:description",
+      content: "Contactez notre cabinet d'expertise immobilière. Notre équipe d'experts certifiés est à votre écoute pour vos projets d'évaluation et d'estimation immobilière."
+    },
+    { property: "og:type", content: "website" },
+    { property: "og:image", content: logo },
+    { property: "og:url", content: "https://www.votresite.com/contact" },
+    { name: "twitter:card", content: "summary_large_image" },
+    { 
+      name: "twitter:title", 
+      content: "Contact | Expert en Évaluation Immobilière" 
+    },
+    {
+      name: "twitter:description",
+      content: "Contactez notre cabinet d'expertise immobilière. Notre équipe d'experts certifiés est à votre écoute pour vos projets d'évaluation et d'estimation immobilière."
+    },
+    { name: "twitter:image", content: logo },
+    { name: "robots", content: "index, follow" },
+    { name: "author", content: "Cabinet d'Expertise Immobilière" },
+    { name: "language", content: "French" },
+    { 
+      name: "geo.region", 
+      content: "FR" 
+    },
+    {
+      name: "geo.placename",
+      content: "France"
+    }
+  ];
+}
 
 const Contact = () => {
   const { toast } = useToast();
