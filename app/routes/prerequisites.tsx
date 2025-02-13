@@ -88,19 +88,11 @@ export default function Prerequisites() {
               delay: index * 0.1,
               ease: "easeOut"
             }}
-            whileHover={{ 
-              scale: 1.05,
-              transition: { duration: 0.2 }
-            }}
             key={index}
-            className="group bg-white rounded-xl cursor-pointer flex flex-col items-center justify-center p-6 text-center transition-all duration-300 relative overflow-hidden hover:shadow-xl"
+            className="group bg-white rounded-xl cursor-pointer flex flex-col items-center justify-center p-6 text-center transition-all duration-300 relative overflow-hidden"
           >
             <motion.div 
               className="relative z-10 bg-white rounded-xl p-6 w-full h-full flex flex-col items-center"
-              whileHover={{
-                y: -5,
-                transition: { duration: 0.2 }
-              }}
             >
               {icon}
               <h3 className="text-lg font-semibold">{title}</h3>

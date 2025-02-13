@@ -30,7 +30,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
         <title>Geoffrey Duhayon</title>
       </head>
-      <body>
+      <body className="bg-gray-50">
         <Navbar />
         {children}
         <ScrollRestoration />
