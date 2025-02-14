@@ -6,7 +6,7 @@ export default function HeroSection() {
     <section
       className="relative flex flex-col justify-between md:mb-16 bg-cover bg-center px-6 md:px-20 lg:px-40"
     >
-      <div className="relative z-10 text-black md:text-left mt-10 md:mt-36">
+      <div className="relative z-10 text-black md:text-left mx-auto mt-10 md:mt-36">
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -31,7 +31,7 @@ export default function HeroSection() {
           className="mt-10 flex items-center md:justify-center"
         >
           <button
-            className="py-3 px-7 cursor-pointer rounded-full text-white text-sm border-none hover:bg-black bg-black md:text-base"
+            className="button"
           >
             <Link to={"/contact"}>Contactez nos experts</Link>
           </button>
