@@ -3,8 +3,8 @@ import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card"
-import methodologie from "@/assets/images/about.jpg";
-
+import methodologie from "@/assets/images/objectif.jpg";
+import logo from '@/assets/images/logo.jpg'
 export function meta({}: Route.MetaArgs) {
   return [
     { title: "Méthodologies d'Évaluation Immobilière | Expert en Estimation de Biens" },
@@ -118,7 +118,7 @@ export default function Methodologies() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               key={index}
             >
-              <Card className="border border-gray-100 shadow-none rounded-none cursor-pointer">
+              <Card className="border border-gray-100 bg-transparent shadow-none rounded-none cursor-pointer">
                 <button
                   className="w-full flex justify-between items-center cursor-pointer p-4 text-left text-base md:text-lg font-medium"
                   onClick={() => toggleFAQ(index)}
@@ -153,7 +153,7 @@ export default function Methodologies() {
           <img
             src={methodologie}
             alt="Illustration des méthodologies d'évaluation immobilière"
-            className="h-[42rem] rounded-lg w-full object-cover"
+            className="h-[42rem] rounded-lg w-full object-cover grayscale"
           />
         </motion.div>
       </div>
