@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 
 export default function Banner() {
   return (
-    <section className="mx-auto px-6 md:px-20 lg:px-40 mb-10 mt-5 md:mt-20">
+    <section className="mx-auto mb-10 mt-5 md:mt-20">
       <motion.section 
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
