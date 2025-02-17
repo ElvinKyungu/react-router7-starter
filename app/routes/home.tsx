@@ -5,6 +5,7 @@ import FAQSection from "@/components/Home/FAQ";
 import About from "@/components/Home/About";
 import logo from "@/assets/images/logo.jpg";
 import Banner from "~/components/Home/Banner";
+import { clsx } from 'clsx';
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -34,7 +35,7 @@ const Home = () => {
       className=""
     >
       <HeroSection />
-      <main className="bg-gray-50">
+      <main className="bg-gray-50 px-6 md:px-20 lg:px-40">
         <About />
         <Banner/>
         <FAQSection />

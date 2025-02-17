@@ -41,7 +41,7 @@ export default function FAQSection() {
   };
 
   return (
-    <div ref={ref} className="mx-auto px-6 md:px-20 lg:px-40 pb-10 mb-10 mt-10 md:mt-28 lg:mt-40">
+    <div ref={ref} className="mx-auto pb-10 mb-10 mt-10 md:mt-28 lg:mt-40">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -94,7 +94,7 @@ export default function FAQSection() {
           <img
             src={about}
             alt="Expert en évaluation immobilière"
-            className="h-96 rounded-lg w-full object-cover"
+            className="h-96 rounded-lg w-full object-cover "
           />
         </motion.div>
       </div>

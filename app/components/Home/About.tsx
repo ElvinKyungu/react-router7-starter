@@ -10,7 +10,7 @@ export default function ContentSection() {
 
   return (
     <section ref={ref} className="overflow-hidden py-5 md:py-10 lg:py-32 mt-10">
-      <div className="space-y-1 lg:space-y-16 px-6 md:px-20 lg:px-40">
+      <div className="space-y-1 lg:space-y-16">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
