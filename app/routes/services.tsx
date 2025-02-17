@@ -1,6 +1,5 @@
 import type { Route } from "./+types/services";
 import { motion } from "framer-motion";
-import { CheckCircle } from "lucide-react";
 import logo from "@/assets/images/logo.jpg";
 
 export function meta({}: Route.MetaArgs) {
@@ -43,47 +42,30 @@ export function meta({}: Route.MetaArgs) {
 const valueTypes = [
   {
     title: "Rapport d'expertise détaillé",
-    description: "Une analyse approfondie et documentée de votre bien immobilier, incluant une évaluation précise basée sur des critères objectifs et les conditions du marché actuel."
+    description: "Une analyse approfondie et documentée de votre bien immobilier, incluant une évaluation précise basée sur des critères objectifs et les conditions du marché actuel.",
+    price: "1500€"
   },
   {
-    title: "Rapport d'expertise synthétique",
-    description: "Un document concis présentant les points clés de l'évaluation de votre bien, idéal pour une vision rapide et claire de sa valeur sur le marché."
+    title: "Rapport d'expertise synthétique", 
+    description: "Un document concis présentant les points clés de l'évaluation de votre bien, idéal pour une vision rapide et claire de sa valeur sur le marché.",
+    price: "800€"
   },
   {
     title: "Certificat d'expertise",
-    description: "Document officiel attestant de la valeur de votre bien, reconnu par les institutions financières et les autorités compétentes."
+    description: "Document officiel attestant de la valeur de votre bien, reconnu par les institutions financières et les autorités compétentes.",
+    price: "500€"
   },
   {
     title: "Contrôle de cohérence",
-    description: "Vérification approfondie de la cohérence des prix et des évaluations immobilières par rapport aux tendances du marché local."
+    description: "Vérification approfondie de la cohérence des prix et des évaluations immobilières par rapport aux tendances du marché local.",
+    price: "500€"
   },
   {
-    title: "Évaluation digitale",
-    description: "Utilisation des dernières technologies et outils numériques pour une estimation précise et rapide de votre bien immobilier."
-  },
-  {
-    title: "Conseil personnalisé",
-    description: "Accompagnement sur-mesure pour comprendre la valeur de votre bien et les opportunités du marché immobilier actuel."
+    title: "Contre-expertise",
+    description: "Service complet incluant le contrôle de cohérence et une analyse approfondie pour confirmer ou infirmer une évaluation existante.",
+    price: "1500€"
   }
 ];
-
-interface ValueCardProps {
-  title: string;
-  description: string;
-  className?: string;
-}
-
-const ValueCard = ({ title, description, className = "" }: ValueCardProps) => (
-  <div className={`w-full p-8 h-full flex flex-col ${className}`}>
-    <div className="flex items-center mb-6">
-      <CheckCircle className="text-green-600 w-6 h-6" />
-      <h2 className="ml-4 text-xl font-medium text-gray-900">{title}</h2>
-    </div>
-    <p className="leading-loose text-gray-600 flex-grow">
-      {description}
-    </p>
-  </div>
-);
 
 const Services = () => {
   return (
@@ -91,60 +73,66 @@ const Services = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="mx-auto"
+      className="mx-auto px-6 md:px-20 lg:px-40"
     >
-      <section className="pb-6 my-10">
-        <div className="mx-auto p-4 sm:p-6 lg:p-8">
-          <div className="container mx-auto px-6 p-6 bg-white">
-            <motion.div 
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="mb-16 space-y-4"
+      <section className="py-10 sm:py-16">
+        <div className="mx-auto">
+          <motion.div 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="mb-12 sm:mb-16 text-center"
+          >
+            <motion.h1 
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="title text-left"
             >
-              <motion.h1 
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="mt-2 text-5xl lg:text-5xl font-medium tracking-tight text-gray-900"
-              >
-                Découvrez nos services
-              </motion.h1>
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                className="text-xl text-gray-600"
-              >
-                Une expertise professionnelle pour tous vos besoins d'évaluation immobilière
-              </motion.p>
-            </motion.div>
+              Nos services et tarifs
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="mt-4 text-lg sm:text-xl text-gray-600 text-left"
+            >
+              Une expertise professionnelle pour tous vos besoins d'évaluation immobilière
+            </motion.p>
+          </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
-              {valueTypes.map((value, index) => {
-                const isLastRow = index >= valueTypes.length - 3;
-                const isLastColumn = index % 3 === 2;
-
-                return (
-                  <motion.div
-                    key={value.title}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="h-full"
-                  >
-                    <ValueCard
-                      title={value.title}
-                      description={value.description}
-                      className={`
-                        ${!isLastRow ? 'border-b border-gray-200' : ''}
-                        ${!isLastColumn ? 'border-r border-gray-200' : ''}
-                      `}
-                    />
-                  </motion.div>
-                );
-              })}
+          <div className="w-full">
+            <div className="hidden sm:flex w-full bg-gray-50 p-6 mb-4 rounded-t-lg">
+              <div className="w-[30%]">
+                <h3 className="text-lg font-medium text-gray-900">Service</h3>
+              </div>
+              <div className="w-[40%]">
+                <h3 className="text-lg font-medium text-gray-900">Description</h3>
+              </div>
+              <div className="w-[30%] text-right">
+                <h3 className="text-lg font-medium text-gray-900">Tarif</h3>
+              </div>
             </div>
+            
+            {valueTypes.map((value, index) => (
+              <motion.div
+                key={value.title}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="flex flex-col sm:flex-row w-full bg-white rounded-lg p-4 sm:p-6 mb-4"
+              >
+                <div className="w-full sm:w-[30%] mb-2 sm:mb-0">
+                  <h3 className="text-lg font-medium text-gray-900">{value.title}</h3>
+                </div>
+                <div className="w-full sm:w-[40%] mb-2 sm:mb-0">
+                  <p className="text-sm text-gray-500">{value.description}</p>
+                </div>
+                <div className="w-full sm:w-[30%] text-left sm:text-right mt-2 sm:mt-0">
+                  <p className="text-lg font-semibold text-gray-900">{value.price}</p>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
